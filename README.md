@@ -47,7 +47,7 @@ node index.js
 ## การใช้งาน Docker (ถ้ามี Dockerfile และ docker-compose)
 
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 ---
