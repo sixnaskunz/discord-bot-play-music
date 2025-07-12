@@ -8,7 +8,6 @@ const {
     getVoiceConnection,
 } = require('@discordjs/voice');
 const ytdl = require('@distube/ytdl-core');
-const ffmpeg = require('ffmpeg-static');
 
 const client = new Client({
     intents: [
@@ -51,9 +50,9 @@ async function playNext(guildId, textChannel) {
         // ใช้ ytdl แบบ stream ผ่าน FFmpeg path
         const stream = ytdl(url, {
             filter: 'audioonly',
+            opusEncoded: true,
             highWaterMark: 1 << 25,
             dlChunkSize: 0,
-            ffmpegPath: ffmpeg, // ชี้ path ไปที่ binary
         });
 
         const resource = createAudioResource(stream);
