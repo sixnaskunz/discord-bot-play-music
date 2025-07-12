@@ -39,7 +39,7 @@ async function playNext(guildId, textChannel) {
     }
 
     const url = queue.shift();
-    console.log('[DEBUG] Playing URL from queue:', url);
+    console.log('Playing URL from queue:', url);
 
     if (!url || !ytdl.validateURL(url)) {
         textChannel.send('⚠️ ลิงก์ไม่ถูกต้อง หรือไม่ใช่ YouTube ข้ามเพลงนี้');
