@@ -1,0 +1,19 @@
+services:
+  discord-bot-play-music:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: discord-bot-play-music:latest
+    container_name: discord-bot-play-music
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: node index.js
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
