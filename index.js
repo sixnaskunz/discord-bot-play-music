@@ -8,7 +8,7 @@ const {
     getVoiceConnection,
 } = require('@discordjs/voice');
 const ytdl = require('@distube/ytdl-core');
-
+const playdl = require('play-dl');
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -83,13 +83,20 @@ client.on('messageCreate', async (message) => {
             const query = args.slice(1).join(' ');
             if (!query) return message.reply('❌ ใส่ลิงก์ YouTube มาด้วย');
 
-            if (!ytdl.validateURL(query)) {
-                return message.reply('❌ กรุณาใส่ลิงก์ YouTube ที่ถูกต้อง');
+            let urlToPlay;
+            if (ytdl.validateURL(query)) {
+                urlToPlay = query;
+            } else {
+                // 🔍 ค้นหา YouTube จากข้อความ
+                const results = await playdl.search(query, { limit: 1 });
+                if (!results.length || !results[0].url)
+                    return message.reply('❌ หาเพลงจาก YouTube ไม่เจอ');
+                urlToPlay = results[0].url;
             }
 
             if (!queueMap.has(guildId)) queueMap.set(guildId, []);
             const queue = queueMap.get(guildId);
-            queue.push(query);
+            queue.push(urlToPlay);
 
             if (!getVoiceConnection(guildId)) {
                 const connection = joinVoiceChannel({
