@@ -7,6 +7,7 @@ const {
     ButtonStyle,
     Events,
     InteractionType,
+    MessageFlags,
 } = require('discord.js');
 const {
     joinVoiceChannel,
@@ -128,7 +129,9 @@ async function playNext(guildId, textChannel) {
         const resource = createAudioResource(stream);
         player.play(resource);
         connection.subscribe(player);
-        textChannel.send(MESSAGES.SONG_PLAYING(song.title, song.url));
+        textChannel.send({
+            content: MESSAGES.SONG_PLAYING(song.title, song.url),
+        });
         sendMusicControls(textChannel);
     } catch (error) {
         console.error('⛔ Error loading stream:', error);
@@ -232,7 +235,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
     async function reply(content) {
         await interaction.reply({
             content,
-            ephemeral: true,
         });
     }
 
