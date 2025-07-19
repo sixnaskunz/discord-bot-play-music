@@ -23,6 +23,10 @@ DISCORD_TOKEN=ใส่โทเคนของคุณที่นี่
 ```bash
 node index.js
 ```
+หรือ
+```bash
+npm start
+```
 
 ## คำสั่งที่รองรับ
 
@@ -44,7 +48,7 @@ node index.js
 - ต้องเข้าห้องเสียงก่อนใช้คำสั่ง `!play`
 - รองรับเฉพาะลิงก์ YouTube เท่านั้น
 
-## การใช้งาน Docker (ถ้ามี Dockerfile และ docker-compose)
+## การใช้งาน Docker (ถ้ามี Docker Desktop)
 
 ```bash
 docker-compose up --build -d
