@@ -72,3 +72,6 @@ docker-compose up --build -d
 
 **ติดต่อ/แจ้งปัญหา:**
 - เพิ่ม issue ใน repo หรือสอบถามผู้พัฒนา
+
+Docker Hub
+https://hub.docker.com/repository/docker/sixnaskunz/discord-bot-play-music
