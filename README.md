@@ -4,6 +4,17 @@
 
 ## วิธีใช้งาน
 
+## วิธีสร้าง Bot Discord
+
+1. ไปที่ [Discord Developer Portal](https://discord.com/developers/applications)
+2. กด "New Application" เพื่อสร้างแอปใหม่ ตั้งชื่อและกด "Create"
+3. ไปที่เมนู "Bot" แล้วกด "Add Bot" จากนั้นกด "Yes, do it!"
+4. กด "Reset Token" เพื่อรับ Token แล้วคัดลอกไว้ (ใช้ในไฟล์ `.env`)
+5. ไปที่ "OAuth2" > "URL Generator"
+6. เลือก Scopes: `bot` และ Permissions: `Connect`, `Speak`, `Send Messages`, `Read Message History`
+7. คัดลอกลิงก์ Invite แล้วนำไปเชิญบอทเข้ากลุ่ม Discord ของคุณ
+
+
 ### 1. ติดตั้ง Dependencies
 
 ```bash
