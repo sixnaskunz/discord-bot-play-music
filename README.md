@@ -54,6 +54,9 @@ npm start
 docker-compose up --build -d
 ```
 
+## Donate ค่ากาแฟ ให้ Developer ได้ที่
+- https://tipme.in.th/77976dad0a8493d03583e3ef
+
 ---
 
 **ติดต่อ/แจ้งปัญหา:**
